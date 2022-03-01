@@ -1,0 +1,23 @@
+<%= form_tag root_path, :method => 'get' do %>
+	<%= text_field_tag :search_user, params[:search_user] %>
+	<%= submit_tag 'Search User', :user_name => nil %>
+<% end %> 
+
+<%= form_tag root_path, :method => 'get' do %>
+	<%= text_field_tag :search_org, params[:search_org] %>
+	<%= submit_tag 'Search Organization', :org_name => nil %>
+<% end %> 
+
+<% if @names.nil? %>
+	<p> Please enter user name or organisation name </p>
+<% elsif @names.empty? %>
+	<p> Please enter a valid user name </p>
+<% else %>
+	<div>REPOS</div>
+	<br>
+	<% @names.each do |name| %>
+		<%= name %>
+		<br><br>
+	<% end %>
+<% end %>
+
